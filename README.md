@@ -1,5 +1,5 @@
 # CaptureMe
-A light application that feeds a video capture from the device's default camera to the user.  Allows user to take a snapshot and save it to file.  OpenCVSharp .NET wrapper and DirectShowLib were used to develop this application.
+A light application that feeds a video capture from the device's default camera to the user.  Allows user to take a snapshot and save it to file.  OpenCVSharp .NET wrapper was used to develop this application.
 
 ## How to use
  Click the Start button to start the stream
