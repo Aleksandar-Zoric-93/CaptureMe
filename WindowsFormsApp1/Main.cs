@@ -3,9 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
-using System.Drawing.Imaging;
 using System.Threading;
-using DirectShowLib;
 
 namespace WindowsFormsApp1
 {
@@ -18,9 +16,6 @@ namespace WindowsFormsApp1
         private Thread camera;
         bool isCameraRunning = false;
         int CameraDevice = 0;
-        int runningCamera;
-        Video_Device[] WebCams;
-
 
         // Declare required methods
         private void CaptureCamera()
@@ -58,24 +53,9 @@ namespace WindowsFormsApp1
         public Main()
         {
             InitializeComponent();
-
-            //-> Find systems cameras with DirectShow.Net dll
-            DsDevice[] _SystemCamereas = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
-            WebCams = new Video_Device[_SystemCamereas.Length];
-            for (int i = 0; i < _SystemCamereas.Length; i++)
-            {
-                WebCams[i] = new Video_Device(i, _SystemCamereas[i].Name, _SystemCamereas[i].ClassID); //fill web cam array
-                Camera_Selection.Items.Add(WebCams[i].ToString()[1]);
-            }
-            if (Camera_Selection.Items.Count > 0)
-            {
-                Camera_Selection.SelectedIndex = CameraDevice; //Set the selected device the default  
-
-            }
-
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void streamBtn_Click(object sender, EventArgs e)
         {
             if (streamBtn.Text.Equals("Start"))
             {
@@ -91,7 +71,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void snapshotBtn_Click(object sender, EventArgs e)
         {
             if (isCameraRunning)
             {
@@ -100,10 +80,6 @@ namespace WindowsFormsApp1
                     // Take snapshot of the current image generate by OpenCV in the Picture Box
                     Bitmap snapshot = new Bitmap(captureFrame.Image);
                     captureFrame.Image.Dispose();
-                    // Save in some directory
-                    // in this example, we'll generate a random filename e.g 47059681-95ed-4e95-9b50-320092a3d652.png
-                    // snapshot.Save(@"C:\Users\sdkca\Desktop\mysnapshot.png", ImageFormat.Png);
-                    //snapshot.Save(string.Format(@"C:\Users\Diomac\Desktop\testSnapshot.png", Guid.NewGuid()), ImageFormat.Png);
 
                     saveSnapshot();
                 }

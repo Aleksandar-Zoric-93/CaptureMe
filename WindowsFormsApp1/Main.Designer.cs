@@ -32,8 +32,6 @@
             this.captureFrame = new System.Windows.Forms.PictureBox();
             this.streamBtn = new System.Windows.Forms.Button();
             this.snapshotBtn = new System.Windows.Forms.Button();
-            this.Camera_Selection = new System.Windows.Forms.ComboBox();
-            this.cameraLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.captureFrame)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +58,7 @@
             this.streamBtn.TabIndex = 1;
             this.streamBtn.Text = "Start";
             this.streamBtn.UseVisualStyleBackColor = false;
-            this.streamBtn.Click += new System.EventHandler(this.button1_Click_1);
+            this.streamBtn.Click += new System.EventHandler(this.streamBtn_Click);
             // 
             // snapshotBtn
             // 
@@ -74,26 +72,7 @@
             this.snapshotBtn.TabIndex = 2;
             this.snapshotBtn.Text = "Take Snapshot";
             this.snapshotBtn.UseVisualStyleBackColor = false;
-            this.snapshotBtn.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // Camera_Selection
-            // 
-            this.Camera_Selection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Camera_Selection.FormattingEnabled = true;
-            this.Camera_Selection.Location = new System.Drawing.Point(83, 424);
-            this.Camera_Selection.Name = "Camera_Selection";
-            this.Camera_Selection.Size = new System.Drawing.Size(181, 21);
-            this.Camera_Selection.TabIndex = 3;
-            // 
-            // cameraLbl
-            // 
-            this.cameraLbl.AutoSize = true;
-            this.cameraLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cameraLbl.Location = new System.Drawing.Point(12, 425);
-            this.cameraLbl.Name = "cameraLbl";
-            this.cameraLbl.Size = new System.Drawing.Size(65, 20);
-            this.cameraLbl.TabIndex = 4;
-            this.cameraLbl.Text = "Camera";
+            this.snapshotBtn.Click += new System.EventHandler(this.snapshotBtn_Click);
             // 
             // Main
             // 
@@ -101,8 +80,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cameraLbl);
-            this.Controls.Add(this.Camera_Selection);
             this.Controls.Add(this.snapshotBtn);
             this.Controls.Add(this.streamBtn);
             this.Controls.Add(this.captureFrame);
@@ -112,7 +89,6 @@
             this.Text = "CaptureMe";
             ((System.ComponentModel.ISupportInitialize)(this.captureFrame)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -121,8 +97,6 @@
         private System.Windows.Forms.PictureBox captureFrame;
         private System.Windows.Forms.Button streamBtn;
         private System.Windows.Forms.Button snapshotBtn;
-        private System.Windows.Forms.ComboBox Camera_Selection;
-        private System.Windows.Forms.Label cameraLbl;
     }
 }
 
